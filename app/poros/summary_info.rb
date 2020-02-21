@@ -1,9 +1,9 @@
 class SummaryInfo 
-  attr_reader :author, :title
+  attr_reader :summarys_array
   def initialize(info)
-    binding.pry
-    @author = info[:docs].first[:author_name]
-    @title = info[:docs].first[:title_suggest]
+    @summarys_array = info[:results].map do |book|
+      book[:summary]
+    end
   end
 
   def get_book

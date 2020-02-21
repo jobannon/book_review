@@ -12,15 +12,14 @@ class NyApiService
   private
 
   def conn
-    Faraday.new("https://api.nytimes.com/svc/books/v3/reviews.json&api-key=#{ENV['NY_API_KEY']}") do |f|
-      f.params["api-key="] = ENV['NY_API_KEY']
+    Faraday.new("https://api.nytimes.com/svc/books/v3/reviews.json") do |f|
+      f.params["api-key"] = "UpEzPl6O6B6eaXArAmACeClBRrvO2MCn"
     end
     # ?title=Normal People&api-key=UpEzPl6O6B6eaXArAmACeClBRrvO2MCn
   end
 
   def get_json(uri)
     response = conn.get(uri) 
-    binding.pry
     JSON.parse(response.body, symbolize_names: true)
   end
 end
