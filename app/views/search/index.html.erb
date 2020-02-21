@@ -1,6 +1,12 @@
 <%=book.author%>
 <%=book.title%>
+<%book.genres.each do |genre|%>
+  <%= genre %>
+<% end %>
 
-<%summary.summarys_array.each do |summary|%>
-<%=summary%>
-<%end%>
+
+
+This book has <%= summary.summarys_array_count %> reviews from the New York Times
+  <%summary.summarys_array.each do |summary|%>
+    <%=summary%>
+  <%end%>
